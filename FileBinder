@@ -1,0 +1,15 @@
+$rootPath = "C:\chatformat-front"  // root folder  
+>> $outputFile = "C:\chatformat-front\all_files.txt"    
+>> 
+>> # Clear the output file if it already exists
+>> if (Test-Path $outputFile) {
+>>     Remove-Item $outputFile
+>> }
+>> 
+>> Get-ChildItem -Path $rootPath -Recurse -Include *.js, *.jsx, *.html, *.css, *.txt | Where-Object { $_.FullName -notmatch '\\node_modules\\' } | ForEach-Object {
+>>     $relativePath = $_.FullName.Substring($rootPath.Length + 1)
+>>     # Write the relative path and file name to the output file
+>>     Add-Content -Path $outputFile -Value ("`n`n--- $relativePath ---`n`n")
+>>     # Append the file content to the output file
+>>     Get-Content $_.FullName | Add-Content -Path $outputFile
+>> }
