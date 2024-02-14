@@ -6,8 +6,8 @@ if (Test-Path $outputFile) {
     Remove-Item $outputFile
 }
 
-Get-ChildItem -Path $rootPath -Recurse -Include *.js, *.jsx, *.html, *.css, *.txt | Where-Object { $_.FullName -notmatch '\\node_modules\\' -and $_.FullName -notmatch '\\build\\' } | ForEach-Object {
-    $relativePath = $_.FullName.Substring($rootPath.Length + 1)
+Get-ChildItem -Path $rootPath -Recurse -Include *.js, *.jsx, *.html, *.css, *.txt | Where-Object { $_.FullName -notmatch '\\node_modules\\' -and $_.FullName -notmatch '\\build\\' -and $_.FullName -notmatch '\\Archive\\' } | ForEach-Object {
+$relativePath = $_.FullName.Substring($rootPath.Length + 1)
     # Write the relative path and file name to the output file
     Add-Content -Path $outputFile -Value ("`n`n--- $relativePath ---`n`n")
     # Append the file content to the output file
