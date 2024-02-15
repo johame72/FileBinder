@@ -1,9 +1,10 @@
-$rootPath = "C:\Fat-Cat-Chat-128k"
+# Set the root path to the current working directory
+$rootPath = Get-Location
 $currentDateTime = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
 $isoTimeStamp = (Get-Date).ToUniversalTime().ToString("yyyyMMddTHH.mm.ss") + "Z"
 $prefix = "$isoTimeStamp-$((Get-Item $rootPath).Basename)"
-$outputFile = "C:\Fat-Cat-Chat-128k\$prefix-all_files.txt"
- 
+$outputFile = "$rootPath\$prefix-all_files.txt"
+
 # Clear the output file if it already exists
 if (Test-Path $outputFile) {
     Remove-Item $outputFile
