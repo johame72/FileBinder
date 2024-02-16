@@ -58,6 +58,3 @@ FileBinder is an open-source project 💖, and contributions are warmly welcomed
 
 ## 📜 License
 FileBinder is released under the MIT License 📄. See the LICENSE file for more details.
-```
-
-This README provides instructions for adding the FileBinder script to the user's PATH environment variable, allowing it to be run from the terminal by typing `FileBinder`. The instructions are provided for both PowerShell and Command Prompt scripts.
