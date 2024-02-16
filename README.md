@@ -10,10 +10,54 @@
 - **Customizable Output**: Tailor the output file's location 🗺️ and name 🏷️ to fit your project's needs, offering flexibility in how and where you store your compiled documents.
 
 ## 🌱 Getting Started
-To start with FileBinder, clone this repository to your local machine 💻. Follow the detailed setup instructions in the README 📋 to install the necessary dependencies, configure your settings, and run the program to produce your project files' first consolidated TEXT document.
+To start with FileBinder, follow these steps:
+
+1. **Clone this repository** to your local machine 💻:
+
+   ```bash
+   git clone https://github.com/your-username/FileBinder.git
+   ```
+
+2. **Navigate to the FileBinder directory**:
+
+   ```bash
+   cd FileBinder
+   ```
+
+3. **Add the script to your PATH**:
+
+   - For PowerShell scripts (`.ps1`):
+     - Create a `.cmd` file (e.g., `FileBinder.cmd`) with the following content:
+
+       ```cmd
+       @echo off
+       powershell -ExecutionPolicy Bypass -File "%~dp0FileBinder.ps1" %*
+       ```
+
+     - Add the directory containing `FileBinder.cmd` to your PATH environment variable:
+
+       ```powershell
+       $env:PATH += ";C:\path\to\FileBinder"
+       ```
+
+   - For Command Prompt scripts (`.cmd` or `.bat`):
+     - Simply add the directory containing the script to your PATH environment variable:
+
+       ```powershell
+       $env:PATH += ";C:\path\to\FileBinder"
+       ```
+
+4. **Run FileBinder** from any terminal by typing:
+
+   ```bash
+   FileBinder
+   ```
 
 ## 💡 Contributions
 FileBinder is an open-source project 💖, and contributions are warmly welcomed. Whether you're looking to fix bugs 🐛, improve features ✨, or suggest new functionalities 🆕, check out our contributing guidelines for more information on how to get involved.
 
 ## 📜 License
 FileBinder is released under the MIT License 📄. See the LICENSE file for more details.
+```
+
+This README provides instructions for adding the FileBinder script to the user's PATH environment variable, allowing it to be run from the terminal by typing `FileBinder`. The instructions are provided for both PowerShell and Command Prompt scripts.
