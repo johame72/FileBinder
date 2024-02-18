@@ -8,6 +8,7 @@
 - **Relative Path Inclusion**: Maintain context with each file's relative path and name 🛣️ included in the PDF, making navigation and reference a breeze.
 - **Automated Concatenation and Conversion**: FileBinder automates the tedious process of manually combining files 🔄 and converting them into a PDF format 📄➡️📁, saving you time and effort.
 - **Customizable Output**: Tailor the output file's location 🗺️ and name 🏷️ to fit your project's needs, offering flexibility in how and where you store your compiled documents.
+- **Archive Management**: Automatically move legacy FileBinder output files to an 'Archive' folder before generating a new document, keeping your workspace organized and preserving previous versions 📁🔙.
 
 ## 🌱 Getting Started
 To start with FileBinder, follow these steps:
