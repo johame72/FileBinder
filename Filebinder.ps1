@@ -5,6 +5,17 @@ $isoTimeStamp = (Get-Date).ToUniversalTime().ToString("yyyyMMddTHH.mm.ss") + "Z"
 $prefix = "$isoTimeStamp-$((Get-Item $rootPath).Basename)"
 $outputFile = "$rootPath\$prefix-all_files.txt"
 
+# Create the 'Archive' folder if it doesn't exist
+$archiveFolder = Join-Path $rootPath "Archive"
+if (-not (Test-Path $archiveFolder)) {
+    New-Item -Path $archiveFolder -ItemType Directory
+}
+
+# Move existing files suffixed with '-all_files.txt' to the 'Archive' folder
+Get-ChildItem -Path $rootPath -Filter "*-all_files.txt" | Where-Object { $_.FullName -ne $outputFile } | ForEach-Object {
+    Move-Item $_.FullName -Destination $archiveFolder
+}
+
 # Clear the output file if it already exists
 if (Test-Path $outputFile) {
     Remove-Item $outputFile
