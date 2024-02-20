@@ -11,8 +11,8 @@ if (-not (Test-Path $archiveFolder)) {
     New-Item -Path $archiveFolder -ItemType Directory
 }
 
-# Move existing files suffixed with '-all_files.txt' to the 'Archive' folder
-Get-ChildItem -Path $rootPath -Filter "*-all_files.txt" | Where-Object { $_.FullName -ne $outputFile } | ForEach-Object {
+# Move existing files suffixed with '-all_files.txt' to the 'Archive' folder BEFORE creating the new output file
+Get-ChildItem -Path $rootPath -Filter "*-all_files.txt" | ForEach-Object {
     Move-Item $_.FullName -Destination $archiveFolder
 }
 
